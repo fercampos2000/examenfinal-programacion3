@@ -1,0 +1,30 @@
+body {
+	background: rgb(204, 136, 68);
+    background-size: cover;
+}
+
+.contenedor
+{
+	width:1000px;
+	margin:auto;
+	padding:60px;
+	background: rgb(255, 255, 255);
+	margin-top:50px;
+	box-shadow:0px 1px 1px
+	rgba(0,0,0,0.4);
+}
+.contenedor img	
+{
+	width:800px;
+	height:400px;
+	margin-top:50px;
+	
+
+}
+.centrado {
+  text-align: center;
+}
+
+.cont {
+    background-color:green;
+}

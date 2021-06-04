@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>GANADO BOVINO</title>
+<!-- BOOTSTRAP 4-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+
+
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<link rel="shortcut icon" href="https://img2.freepng.es/20180709/slx/kisspng-taurine-cattle-beef-cattle-computer-icons-clip-art-cow-icon-5b4410a9ba3442.5943697815311873697627.jpg" type="image/x-icon">
+<link rel="stylesheet" href="/src/templates/css/estilos.css">
+<style>
+
+body {
+	background: rgb(204, 136, 68);
+    background-size: cover;
+}
+
+.contenedor
+{
+	width:1000px;
+	margin:auto;
+	padding:60px;
+	background: rgb(255, 255, 255);
+	margin-top:50px;
+	box-shadow:0px 1px 1px
+	rgba(0,0,0,0.4);
+}
+.contenedor img	
+{
+	width:800px;
+	height:400px;
+	margin-top:50px;
+	
+
+}
+.centrado {
+  text-align: center;
+}
+
+.cont {
+    background-color:green;
+}
+.nab{
+	text-align: center;
+	list-style: none;
+	width: 90%;
+	max-width: 1000px;
+	margin: auto;
+	display: block;
+	text-decoration: none;
+	text-align: center;
+
+}
+.nab li a:hover{
+	background-color: rgb(204, 136, 68);
+}
+
+nav li a {
+
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+  text-align: center;
+ 
+}
+
+
+</style>
+
+
+
+
+<link rel="shortcut icon" href="img/icono.png" type="image/x-icon">
+
+
+</head>
+<body>
+	<div class="nab" >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light nab">
+	
+
+		<div class="container">
+			
+			<div class="collapse navbar-collapse" id="navbarNav">
+			  <ul class="navbar-nav">
+				<li class="nav-item">
+				  <a class="nav-link active" aria-current="page" href="http://localhost:8000/animals?query=mutation%7B%0AcreateAnimal(input%3A%7B%0A%09%09Edad%3A5%0A%20%20%20%20nombre%3A%22Mariposa%22%0A%20%20%20%20C_Crias%3A5%0A%20%20%20%20C_Partos%3A5%0A%20%20%20%20Crias_Logradas%3A4%0A%20%20%20%20Genetica%3A%22GYR%22%0A%20%20%20%20Vacunacion%3A%22VITAMIDA%20D%22%0A%20%20%20%20Litraje_L%3A25%0A%20%20%20%20Alimentacion%3A%22ALFALFA%22%0A%20%20%0A%7D)%0A%20%20%7B%0A%20%20%20%20_id%0A%20%20%20%20Edad%0A%20%20%20%20nombre%0A%20%20%20%20C_Crias%0A%20%20%20%20C_Partos%0A%20%20%20%20Crias_Logradas%0A%20%20%20%20Genetica%0A%20%20%20%20Vacunacion%0A%20%20%20%20Litraje_L%0A%20%20%20%20Alimentacion%20%0A%20%20%7D%0A%7D">
+					<i class="fas fa-envelope"></i>CREAR ANIMAL</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="http://localhost:8000/animals?query=mutation%7B%0A%20%20deleteAnimal(_id%3A%20%2260b70c2b120b245808f199a9%22)%7B%0A%20%20%20%20_id%0A%20%20%20%20Edad%0A%20%20%20%20C_Crias%0A%20%20%7D%0A%7D">
+					  <i class="fas fa-envelope"></i>ELIMINAR ANIMAL</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="http://localhost:8000/animals?query=%0A%0Amutation%7B%0A%20%20updateAnimal(%0A%20%20%20%20_id%3A%20%2260b70c2b120b245808f199a9%22%20%2C%0A%20%20%20%20input%3A%7B%0A%20%20%20%20%20%20Edad%3A%209%2C%0A%20%20%20%20%20%20nombre%3A%20%22MARIPOSA%20DE%20PETALOS%22%0A%20%20%20%20%20%20C_Crias%3A%2099%0A%20%20%20%20%20%20C_Partos%3A%205%0A%20%20%20%20%20%20Crias_Logradas%3A%2099%0A%20%20%20%20%7D%0A%20%20)%7B%0A%20%0A%20%20%20%20Edad%0A%20%20%20%20nombre%0A%20%20%20%20C_Crias%0A%20%20%20%20C_Partos%0A%20%20%20%20Crias_Logradas%0A%20%20%20%20Genetica%0A%20%20%20%20Vacunacion%0A%20%20%20%20Litraje_L%0A%20%20%20%20Alimentacion%0A%20%20%7D%09%0A%7D">
+					<i class="fas fa-envelope"></i></i>ACTUALIZAR ANIMAL</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost:8000/animals?query=%7B%0A%0A%20%20Mostrar_Animales%7B%0A%20%20%20%20_id%0A%20%20%20%20%20Edad%0A%20%20%20%20nombre%0A%20%20%20%20C_Crias%0A%20%20%20%20C_Partos%0A%20%20%20%20Crias_Logradas%0A%20%20%20%20Genetica%0A%20%20%20%20Vacunacion%0A%20%20%20%20Litraje_L%0A%20%20%20%20Alimentacion%0A%20%20%20%20%0A%20%20%7D%0A%0A%7D">
+						<i class="fas fa-envelope"></i>MOSTRAR ANIMALES AGREGADOS</a>
+				</li>
+			  </ul>
+		  </div>
+	</div>
+  </nav>
+</div>
+  <header th:replace="plantilla/template :: header"></header>
+	
+	<div class="contenedor">
+		<h1 align = "center"><br>CONTROL DE GANADO </br></h1>
+
+	<p style="text-align: center; "> <img src="https://certifiedhumanelatino.org/wp-content/uploads/2020/06/Especies-forrajeras-pueden-ser-una-soluci%C3%B3n-para-mejorar-la-dieta-del-ganado-bovino-en-invierno.jpeg" alt="imagen 3" width="200"></p>
+	
+	<center><h2 class="sub-titulo">INFORMACIÓN SOBRE EL GANADO VACUNO O BOVINO</h2></center>
+	
+<p>El ganado vacuno o bovino es aquel tipo de ganado que está representado por un conjunto de vacas, 
+	bueyes y toros que son domesticados por el ser humano para su aprovechamiento y producción; 
+	es decir esta clase abarca una serie de mamíferos herbívoros domesticados por el hombre para satisfacer 
+	ciertas necesidades bien sea alimenticias o económicas. El ser humano puede generar grandes ganancias en la 
+	crianza de estos animales debido a que puede obtener diversos elementos de ellos como su carne, piel o leche, 
+	por ende se puede decir que el ganado vacuno es una de las mejores inversiones económicas en cuanto a la 
+	crianza de animales se refiere; además generalmente sus derivados son utilizados para la realización de otros 
+	productos de uso humano.</p>
+
+
+<p>El ganado vacuno es descrito como un mamífero rumiante de gran tamaño con un cuerpo robusto, con una 
+	altura de alrededor de 120-150 cm y con aproximadamente 600 a 800 kg como peso promedio. Los mismos han
+	 sido criados por el hombre desde tiempos remotos, alrededor de 10 000 años en el Oriente Medio, 
+	 seguidamente como actividad se impulsó alrededor de todo el mundo en los siguientes años. 
+	 En sus inicios eran utilizados más que todo para la producción de leche y carne junto con el 
+	 tratado de la tierra, seguido fue el aprovechamiento de sus derivados como sus cuernos, su excremento como
+	  una clase de fertilizante o combustible o por su parte la piel para la producción 
+	de vestimenta; además tiempo más tarde se dio inicio a la realización de espectáculos taurinos en diversos países.</p>
+
+
+	<p>
+		La actividad que incluye esta domesticación y aprovechamiento de dichos animales se le conoce como ganadería bovina. 
+		En la actualidad el ganado vacuno puede ser clasificado en dos especies que son la Bovidae taurus, 
+		originaria del continente europeo comprendiendo gran parte de los diversos tipos de ganado lechero y de carne; 
+		por otro lado está la Bovidae indicus con procedencia de India que suelen ser identificados por la joroba que 
+		se encuentra entre los hombros o en la cruz del animal.
+	</p>
+	<p>
+		Otras características del ganado vacuno son que proviene de la familia de los Bóvidos, 
+		poseen dos cuernos o astas huecos y puede que sin brotar que durante toda su vida logran conservar.
+	</p>
+
+
+
+
+	
+	
+	
+</div>	
+
+
+
+<footer th:fragment="footer" class="bg-dark text-center text-white fixed-bottom">
+
+	<div class="container">
+	<p>@Copyrigth GRAPHQL 2021</p>
+	</div>
+
+	
+
+</footer>
+</body>
+</html>
